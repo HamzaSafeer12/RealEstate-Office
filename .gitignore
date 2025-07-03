@@ -11,3 +11,6 @@ db.sqlite3
 
 # Ignore environment variable files
 .env
+
+# Static files (for production)
+/staticfiles/
