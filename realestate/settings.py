@@ -130,17 +130,30 @@ WSGI_APPLICATION = 'realestate.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('PGDATABASE', 'realestate_db_farhan'),
-        'USER': os.environ.get('PGUSER', 'postgres'),
-        'PASSWORD': os.environ.get('PGPASSWORD', 'postgree12'),
-        'HOST': os.environ.get('PGHOST', 'localhost'),
-        'PORT': os.environ.get('PGPORT', '5432'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.environ.get('PGDATABASE', 'realestate_db_farhan'),
+#         'USER': os.environ.get('PGUSER', 'postgres'),
+#         'PASSWORD': os.environ.get('PGPASSWORD', 'postgree12'),
+#         'HOST': os.environ.get('PGHOST', 'localhost'),
+#         'PORT': os.environ.get('PGPORT', '5432'),
+#     }
+# }
+from dotenv import load_dotenv
+import dj_database_url
 
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+
+DEBUG = os.getenv("DEBUG", "False").lower() == "true"
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
+}
 
 
 # Password validation
