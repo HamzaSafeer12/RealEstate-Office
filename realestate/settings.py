@@ -118,14 +118,26 @@ WSGI_APPLICATION = 'realestate.wsgi.application'
 #         'PORT': '3306',
 #     }
 # }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'realestate_db_farhan',
+#         'USER': 'postgres',
+#         'PASSWORD': 'postgree12',  # replace with your password
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'realestate_db_farhan',
-        'USER': 'postgres',
-        'PASSWORD': 'postgree12',  # replace with your password
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('PGDATABASE', 'realestate_db_farhan'),
+        'USER': os.environ.get('PGUSER', 'postgres'),
+        'PASSWORD': os.environ.get('PGPASSWORD', 'postgree12'),
+        'HOST': os.environ.get('PGHOST', 'localhost'),
+        'PORT': os.environ.get('PGPORT', '5432'),
     }
 }
 
