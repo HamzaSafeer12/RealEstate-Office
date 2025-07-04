@@ -138,10 +138,14 @@ import dj_database_url
 load_dotenv()
 
 SECRET_KEY = os.getenv("SECRET_KEY")
+import logging
+logging.warning(f"SECRET_KEY loaded: {SECRET_KEY}")
+logging.warning(f"DATABASE_URL loaded: {os.getenv('DATABASE_URL')}")
 
 DEBUG = os.getenv("DEBUG", "False").lower() == "true"
 
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").split(",")
+
 
 DATABASES = {
     'default': dj_database_url.config(default=os.getenv("DATABASE_URL"))
