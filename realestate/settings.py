@@ -28,7 +28,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # CELERY_RESULT_BACKEND = 'django-db'  # optional
 # CELERY_ACCEPT_CONTENT = ['json']
 # CELERY_TASK_SERIALIZER = 'json'
-
+# Debug karo
+print("REDIS_URL from env:", os.environ.get('REDIS_URL'))
 CELERY_BROKER_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 CELERY_RESULT_BACKEND = 'django-db'  # ye same rakh sakte ho
 CELERY_ACCEPT_CONTENT = ['json']
