@@ -4,8 +4,11 @@ from rest_framework import status
 from realestateapp.serializers.realestate_user_serializer import SignupSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from realestateapp.serializers.realestate_user_serializer import CustomTokenObtainPairSerializer
+from django.shortcuts import render
 
 class SignupView(APIView):
+    def get(self, request):
+        return render(request, 'realestate_user.html')
     def post(self, request):
         serializer = SignupSerializer(data=request.data)
         if serializer.is_valid():
