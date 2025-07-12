@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Real Estate Signup</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #2980b9, #6dd5fa);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 450px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #2c3e50;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 12px;
+      display: block;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #2980b9;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: #1f6691;
+    }
+    .message {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Signup - Real Estate Portal</h2>
+    <form id="signupForm">
+      <label for="username">Full Name</label>
+      <input type="text" id="username" placeholder="Hamza Safeer" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="hamza@example.com" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="********" required />
+
+      <label for="role">Role</label>
+      <select id="role" required>
+        <option value="">-- Select Role --</option>
+        <option value="realtor">Realtor</option>
+        <option value="investor">Investor</option>
+        <option value="developer">Developer</option>
+      </select>
+
+      <label for="company">Company Name</label>
+      <input type="text" id="company" placeholder="Your Company" required />
+
+      <label for="credentials">Professional Credentials</label>
+      <input type="text" id="credentials" placeholder="MBA, BSc Real Estate..." required />
+
+      <button type="submit">Create Account</button>
+    </form>
+
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = {
+            username: document.getElementById('username').value,
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+            role: document.getElementById('role').value,
+            company_name: document.getElementById('company').value,
+            professional_credentials: document.getElementById('credentials').value
+        };
+
+        try {
+            const response = await fetch('https://web-production-b90bf.up.railway.app/api/signup/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            
+            
+            const result = await response.json();
+            console.log('Full backend response:', result);
+
+            if (response.ok) {
+                message.style.color = 'green';
+                message.innerText = result.message || 'Signup successful!';
+                form.reset();
+            } else {
+                message.style.color = 'red';
+                message.innerText = result.message || result.detail || 'Signup failed!';
+            }
+
+        } catch (error) {
+            message.style.color = 'red';
+            message.innerText = 'Something went wrong!';
+        }
+    });
+</script>
+
+
+</body>
+</html>
