@@ -65,8 +65,9 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://web-production-b90bf.up.railway.app/"
+    "https://web-production-b90bf.up.railway.app"  # ✅ correct — NO trailing slash
 ]
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
