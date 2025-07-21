@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Estate Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('/media/floor_plans/home.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.3); /* light fade */
+      z-index: -1;
+    }
+
+   .navbar {
+  display: flex;
+  justify-content: space-between; /* left & right sections */
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #4b0082;
+}
+
+.Webname a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+}
+
+
+
+    .navbar a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+    }
+
+    .Webname a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 60px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 550px;
+      color: rgb(0, 0, 0);
+    }
+
+    .hero-text h1 {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin: 20px 0;
+      color: whitesmoke;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      background-color: #c0532e;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #a63f20;
+    }
+
+    .hero-img img {
+      width: 450px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    @media screen and (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .navbar {
+        justify-content: center;
+      }
+    }
+
+    .section-break {
+      background-color: #f3f4f6;
+      padding: 60px;
+      text-align: center;
+    }
+
+    .section-break h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+      color: #1f2937;
+    }
+
+    .section-break p {
+      font-size: 16px;
+      color: #4b5563;
+    }
+
+
+    .search-section {
+    background-color: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 10px;
+    color: white;
+    max-width: 600px;
+  }
+  .search-section h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+  .tab-buttons {
+    margin-bottom: 20px;
+  }
+  .tab {
+    padding: 10px 20px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    margin-right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .tab.active, .tab:hover {
+    background-color: white;
+    color: black;
+  }
+  .search-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .search-box input,
+  .search-box select {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    flex: 1 1 180px;
+  }
+  .find-btn {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .search-options {
+    margin-top: 15px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  .search-options a {
+    color: #61dafb;
+    text-decoration: none;
+    font-size: 14px;
+  }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+  <div class="Webname">
+    <a href="#" style="font-size: 22px;">🏘️ BuildEstate</a>
+  </div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Plots</a>
+    <a href="#">Commercial</a>
+    <a href="#">Login</a>
+    <a href="#">Signup</a>
+  </div>
+</div>
+
+
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Find Your Dream Home</h1>
+      <p>Discover the perfect property with our expert real estate services.</p>
+      <button class="btn">Browse Listings</button>
+    </div>
+    <div class="search-section">
+  <h2>Search properties for sale in Pakistan</h2>
+  <!-- <div class="tab-buttons">
+    <button class="tab active">Buy</button>
+    <button class="tab">Rent</button>
+    <button class="tab">Projects</button>
+  </div> -->
+
+  <div class="search-box">
+    <input type="text" placeholder="City" value="Islamabad">
+    <input type="text" placeholder="Location">
+    <button class="find-btn">Find</button>
+
+    <select>
+      <option>Homes</option>
+      <option>Plots</option>
+      <option>Commercial</option>
+    </select>
+
+    <select>
+      <option>0 to Any (PKR)</option>
+      <option>1000000 to 5000000</option>
+      <option>5000000 to 10000000</option>
+    </select>
+
+    <select>
+      <option>0 to Any (Marla)</option>
+      <option>5 to 10</option>
+      <option>10 to 20</option>
+    </select>
+
+    <select>
+      <option>Beds: All</option>
+      <option>1+</option>
+      <option>2+</option>
+      <option>3+</option>
+    </select>
+
+  </div>
+</div>
+    
+  </div>
+
+  <div class="section-break">
+    <h2>Why Choose Us?</h2>
+    <p>We offer verified listings, expert consultations, and seamless property transactions for buyers, sellers, and investors.</p>
+  </div>
+</body>
+</html>
