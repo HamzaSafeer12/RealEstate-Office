@@ -20,5 +20,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('realestateapp.urls')),
     path('api/', include('realestateapp.urls')),  # app-level URLs yahan se include honge
 ]
