@@ -6,8 +6,10 @@ from realestateapp.views.realestate_view_user import SignupView , CustomLoginVie
 from realestateapp.views.adminuser_approval import AdminUserApprovalView
 from realestateapp.views.property_view import PropertyCreateAPIView, PropertyListing, PropertyTypeCreateAPIView, SubPropertyTypeCreateAPIView
 from realestateapp.views.realtor_view import AvailableDevelopersAPIView, SendRequestToDeveloperView, DeveloperRequestsView,AcceptedDevelopersView
+from realestateapp.views.homePage import homepage
 
 urlpatterns = [
+    path('', homepage, name='homepage'),
     path('signup/', SignupView.as_view(), name='signup'), 
     path('login/', CustomLoginView.as_view(), name='custom_login'), # for APIView
     path('admin/user/<int:user_id>/', AdminUserApprovalView.as_view(), name='user-approval'),
